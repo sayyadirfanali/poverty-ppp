@@ -35,7 +35,7 @@ The vertical gap between them is the goods-share gap times the slope.
 
 ## Theorems
 
-All in `PovertyPPP.lean`, namespace `PPP`, with shares valued at US prices.
+All in `PovertyPPP.lean`, namespace `PovertyPPP`, with shares valued at US prices.
 
 | Theorem | Statement |
 |---|---|
@@ -70,6 +70,7 @@ With goods at ₹30, services at ₹13, and baskets that are 78% and 67% goods, 
 - The PPP is a fixed basket in two categories, not the ICP's GEKS-Fisher method.
 - One goods ratio and one services ratio are used for every basket, though the poor's mix within each category differs.
 - Prices are from 2021 and shares from 2022-23.
+- How the $3 line is built from other countries' national lines is not modelled, so the effect on India's line may be smaller.
 
 ## Files
 
