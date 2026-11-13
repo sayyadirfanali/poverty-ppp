@@ -1,0 +1,9 @@
+name = "poverty-ppp"
+defaultTargets = ["PovertyPPP"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+
+[[lean_lib]]
+name = "PovertyPPP"
