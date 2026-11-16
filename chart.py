@@ -1,17 +1,16 @@
 """PPP of a basket rises linearly with its goods share (pppRate_eq_affine).
-Central case of calibrate.py: ICP 2021 PPPs and HCES 2022-23 Table A6 shares."""
+Uses calibrate.py: ICP 2021 PPPs and HCES 2022-23 Table A6 shares."""
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from shares import load
 from calibrate import split, ratio, model
 
 d = load('./Table_A6.xlsx')
-CASE = 1
 ga, sa = [], []
 for sec in ('Rural', 'Urban'):
-    g, s = split(d, sec, 'all', CASE); ga += g; sa += s
+    g, s = split(d, sec, 'all'); ga += g; sa += s
 RG, RS = ratio(ga), ratio(sa)
-pts = {(sec, grp): model(d, sec, col, CASE, RG, RS)
+pts = {(sec, grp): model(d, sec, col, RG, RS)
        for sec in ('Rural', 'Urban') for grp, col in (('avg', 'all'), ('poor', 'b10'))}
 
 INK, MUTED, GRID, BG = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
@@ -71,3 +70,4 @@ fig.text(0.01, 0.01, "PPPs: ICP 2021. Shares: HCES 2022-23, Table A6. "
 for name, dpi in (("ppp_chart.svg", None), ("ppp_chart.png", 240)):
     fig.savefig(name, dpi=dpi, facecolor=BG, bbox_inches="tight", pad_inches=MARGIN)
 print("Saved ppp_chart.svg and ppp_chart.png")
+
